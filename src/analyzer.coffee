@@ -228,6 +228,18 @@ class Analyzer
                     #memory
                     d.mem.activation = d.wOut*d.hOut*d.chOut
                     
+                when "prelu"
+                    #dimensions
+                    d.wIn = parent.wOut
+                    d.hIn = parent.hOut
+                    d.wOut = d.wIn
+                    d.hOut = d.hIn
+                    d.chOut = d.chIn = parent.chOut
+                    #computation
+                    d.comp.comp = d.wIn*d.hIn*d.chIn
+                    #memory
+                    d.mem.activation = d.wOut*d.hOut*d.chOut
+                    
                 when "softmax", "softmaxwithloss", "softmax_loss"
                     #dimensions
                     d.wIn = parent.wOut
