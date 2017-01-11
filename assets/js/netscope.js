@@ -196,6 +196,7 @@ module.exports = Analyzer = (function() {
           d.mem.activation = d.wOut * d.hOut * d.chOut;
           break;
         case "relu":
+	case "power":
         case "dropout":
           d.wIn = parent.wOut;
           d.hIn = parent.hOut;
